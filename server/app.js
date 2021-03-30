@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const {graphqlHTTP} = require('express-graphql')
 const schema = require('./schema/schema')
 const mongoose = require('mongoose');
@@ -12,6 +13,8 @@ mongoose.connection.once('open' , ()=>{
     console.log('connected to mongodb');
 })
 
+//? CORS
+app.use(cors());
 
 //? whenver someone goes to /graphql , then graphqlHTTP is used.
 //? this is the endpoint of graphql
