@@ -27,6 +27,7 @@ function BookDetails(props) {
       );
     }
     else{
+        if(loading) return <div> Loading your book.</div>
         return <div> No book selected</div>
     }
   }
